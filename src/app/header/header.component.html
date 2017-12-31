@@ -1,0 +1,32 @@
+<div #menuContainer>
+  <div class="logo-container">
+    <a href="/">
+      <img src="./assets/icon/100x100.png">
+    </a>
+  </div>
+  <div class="menu-hamburger" #menuHamburger (click)="onToggle()">
+    <img src="./assets/img/menu.png" alt="">
+  </div>
+  <ul class="menu hidden" #menu>
+    <li>
+      <a href="#">
+        <span>About</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span>Services</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span>Hire Me</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span>Contact</span>
+      </a>
+    </li>
+  </ul>
+</div>
