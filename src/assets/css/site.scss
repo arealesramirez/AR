@@ -23,40 +23,62 @@ body, p, input, textarea, label{ font-family: 'Lato','Open sans', sans-serif }
 app-root{
     display: block;
 }
+.menu-hamburger{ 
+    width: 75px;
+    padding: 0.5em;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+.menu-hamburger img{
+    width: 40px;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 50%;
+    padding: 0.5em;
+    display: block;
+    margin: auto;
+    background: #dddddd;
+}
+.menu-hamburger img:hover{
+    background-color: #FFF;
+    cursor: pointer;
+}
 app-header {
     width: 100%;
-    // max-width: 1200px;
     color: #ffffff;
     display: block;
     position:fixed;
     top:0;
     left:50%;
     transform: translateX(-50%);
-    opacity: 0.2;
-    z-index: 999;
+    opacity: 1;
+    z-index: 99;
     overflow: hidden;
 }
 .menu-active {
     background-color: #270000;
-    opacity: 0.8;
+    opacity: 1;
     height: 100vh;
     top: 0;
 }
 
 app-header:hover{
-    opacity: 0.9;
+    opacity: 1;
 }
 .logo-container{
-	display:inline-block;
+    display:inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .logo-container img {
     width:4em;
     padding:0.5em;
 }
-
 .menu {
-	float:right;
     display: inline-block;
     list-style: none;
     right:0;
@@ -71,118 +93,149 @@ app-header:hover{
 }
 
 .menu li {
-	display:inline-block;
-	position:relative;
-	float:left;
+    height: 100%;
+    width: 50%;
+    display: block;
+    padding: 0;
     font-family: 'true lies', Arial, sans-serif; 
     font-size:22px;
     font-weight:bold;
     letter-spacing: 0.15em;
-    width: 6em;
     text-align:center;
-    padding-top: 1em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    transform:skewx(-25deg);
-	-ms-transform:skewx(-25deg); /* IE 9 */
-	-webkit-transform:skewx(-25deg);
-    // border-right:2px solid #ffffff;
-    
-    display: inline-block;
-    float: none;
-    width: 49%;
-    height: 50%;
-    // padding-bottom: 0.5em;
-    /* border-right: 0; */
-    /* -webkit-transform: skewX(0deg); */
-    /* transform: skewX(0deg); */
-    // border-bottom: 2px solid #FFF;
-    /* padding: 0; */
-    /* margin: 0; */
-    // margin-bottom: 1em;
+    overflow: hidden;
     -webkit-transition: -webkit-transform .8s ease-in-out;
-    transition:         transform .8s ease-in-out;
-    padding: 0;
+    transition: transform .8s ease-in-out;
 }
-.menu li:first-of-type{
-    border-color: rgb(255, 255, 255);
-    transform: skewX(25deg);
-    margin-left: -5.8%;
-    padding-left: 6%;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
+.menu-left{
+    float: left;
 }
-.menu li:first-of-type a{
-    transform: skewX(-40deg);
+.menu-left > div {
+    padding-left: 50vw;
+    margin-left: -50vw;
 }
-.menu li:last-of-type{
-    border-color: rgb(255, 255, 255);
-    border-top: 2px solid;
-    border-left: 2px solid;
+.menu-right{
+    float: right;
 }
-// app-header ul li:hover {
-//     transform:skewx(25deg);
-// 	-ms-transform:skewx(25deg); /* IE 9 */
-// 	-webkit-transform:skewx(25deg);
-// }
-// app-header ul li:hover a {
-//     transform:skewx(-35deg);
-// 	-ms-transform:skewx(-35deg); /* IE 9 */
-//     -webkit-transform:skewx(-35deg);
-// }
-.menu li a {
-    height: 100%;
-  text-decoration: none;
-  color:#ffffff;
-  display:block;
-  -webkit-transition: -webkit-transform .8s ease-in-out;
-  transition: transform .8s ease-in-out;
+.menu-right > div {
+    padding-right: 50vw;
+    margin-right: -50vw;
 }
-.menu li a span{
-
-	display:block;
-	transform:skewx(25deg);
-	-ms-transform:skewx(25deg); /* IE 9 */
-	-webkit-transform:skewx(25deg);
-}
-.menu-hamburger{ 
-    width: 75px;
-    padding: 0.5em;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.menu-hamburger img{
-    width: 40px;
-    border: 1.5px solid #FFFFFF;
-    border-radius: 50%;
-    padding: 0.5em;
-    display: block;
-    margin: auto;
-}
-.menu-hamburger img:hover{
-    background-color: #FFF;
+.menu li > div {
+    height: 50%;
     cursor: pointer;
 }
 
-.hidden {display: none}
-// @media only screen and (max-width: 750px)  {
-//     .menu{ 
-//         display: block;
-//         float: none;
-//         padding: 0;
-//     }
-//     .menu-hamburger{
-//         display: block;
-//         float: none;
-//         width: 100%;
-//         padding-bottom: 0.5em;
-//         border-right: 0;
-//         -webkit-transform: skewX(0deg);
-//         transform: skewX(0deg);
-//         border-bottom: 2px solid #FFF; 
-//     }
+
+.menu li div a {
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    color:#ffffff;
+    display:block;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+
+}
+.menu li div a span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display:block;
+    background: black;
+    color: white;
+    padding: 1em;
+    border: 1px outset #FFF;
+}
+.menu-about a span, .menu-contact a span{
+    transform: translate(-50%,-50%) skewx(45deg) !important;
+}
+.menu-services a span, .menu-hireme a span{
+    transform: translate(-50%,-50%) skewx(-45deg) !important;
+}
+
+.menu-about {
+    background: #FFFFFF;
+}
+
+.menu-services {
+    background: #932b2b;
+}
+
+.menu-hireme {
+    background: #4f0404;
+}
+
+.menu-contact {
+    background: #e5e5ee;
+}
+
+.menu-canvas {
+    z-index: 10;
+    height: 100vh !important;
+    display: none;
+}
+#logo-canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.menu-about, .menu-contact{
+    transform:skewx(-45deg);
+	-ms-transform:skewx(-45deg); /* IE 9 */
+    -webkit-transform:skewx(-45deg);
+    overflow: hidden;
+}
+
+.menu-services, .menu-hireme{
+    transform:skewx(45deg);
+	-ms-transform:skewx(45deg); /* IE 9 */
+    -webkit-transform:skewx(45deg);
+    overflow: hidden;
+}
+
+.menu-about, .menu-contact{
+    z-index: 1;
+}
+// .menu-about a span, .menu-contact a span {
+//     color: #000000;
 // }
+// .menu-services a span, .menu-hireme a span {
+//     color: #FFFFFF;
+// }
+.bg-img{ 
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.bg-img img {
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.menu li > div:hover .bg-img{
+    display: block;
+}
+.menu-about .bg-img img, .menu-contact .bg-img img{
+    transform: skewX(45deg);
+    -ms-transform: skewX(45deg);
+    -webkit-transform: skewX(45deg);
+}
+.menu-services .bg-img img, .menu-hireme .bg-img img{
+    transform: skewX(-45deg);
+    -ms-transform: skewX(-45deg);
+    -webkit-transform: skewX(-45deg);
+}
+
+.hidden {display: none !important}
 
 app-home{
     width: 100%;
@@ -192,7 +245,7 @@ app-home{
     display: block;
 }
 
-canvas {
+#home-canvas {
     background: url(/assets/img/landscape1.png) no-repeat;
     background-position: center;
     background-size: cover;

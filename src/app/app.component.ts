@@ -1,58 +1,74 @@
-import { AfterViewInit } from '@angular/core';
-declare var jquery:any;
-declare var $ :any;
-/**
- * Angular 2 decorators and services
- */
 import {
   Component,
   OnInit,
-  ViewEncapsulation
+  OnChanges,
+  ViewEncapsulation,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { AppState } from './app.service';
 import { PostsService } from './posts/posts.service';
 import { ContactService } from './contact/contact.service';
-/**
- * App Component
- * Top Level Component
- */
+import { HeaderComponent } from './header/header.component';
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   // styleUrls: [ './app.component.scss'],
-  templateUrl:'./app.component.html',
+  templateUrl: './app.component.html',
   providers: [PostsService, ContactService]
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Mean stack starter';
-  public url = 'https://mean.io';
+export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public loadAPI: Promise<any>;
+  public isMenuActive: boolean;
+  public activeComponent: string = 'home';
+  public @ViewChild('imgHamburger') imgHamburger: ElementRef;
+  public @ViewChild('imgExit') imgExit: ElementRef;
 
   constructor(
     public appState: AppState
-  ) { }
+  ) {
+    this.isMenuActive = false;
+  }
+
+  public ngOnChanges() {
+  }
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit() {
     this.loadAPI = new Promise((resolve) => {
       this.loadChangeColorHeader();
       resolve(true);
     });
   }
 
+  public onToggle() {
+    if (this.isMenuActive === true) {
+      this.isMenuActive = false;
+      this.imgHamburger.nativeElement.classList.remove('hidden');
+      this.imgExit.nativeElement.classList.add('hidden');
+    } else {
+      this.isMenuActive = true;
+      this.imgHamburger.nativeElement.classList.add('hidden');
+      this.imgExit.nativeElement.classList.remove('hidden');
+    }
+  }
+
   public loadChangeColorHeader() {
-    var topHome = $('app-home').offset().top;
-    var topAbout = $('app-about').offset().top;
-    var topServices = $('app-services').offset().top;
-    var topHireme = $('app-hireme').offset().top;
-    var topContact = $('app-contact').offset().top;
-    var topFooter = $('app-footer').offset().top;
-    var currentDiv = 'app-home';
-    var rgb = 0;
+    let topHome = $('app-home').offset().top;
+    let topAbout = $('app-about').offset().top;
+    let topServices = $('app-services').offset().top;
+    let topHireme = $('app-hireme').offset().top;
+    let topContact = $('app-contact').offset().top;
+    let topFooter = $('app-footer').offset().top;
+    let currentDiv = 'app-home';
+    let rgb = 0;
 
     $(document).scroll(function () {
       if (window.pageYOffset < topAbout) {
@@ -68,29 +84,31 @@ export class AppComponent implements OnInit, AfterViewInit {
       } else if (window.pageYOffset > topFooter) {
         currentDiv = 'app-footer';
       }
-      if (currentDiv == 'app-home') {
+      if (currentDiv === 'app-home') {
         rgb = 0;
       } else {
-        rgb = $(currentDiv).css('background-color').replace('rgb(', '').replace(')', '').split(',').map(Number);
+        rgb = $(currentDiv)
+          .css('background-color')
+          .replace('rgb(', '')
+          .replace(')', '')
+          .split(',')
+          .map(Number);
       }
-      var o = Math.round(((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000);
+      let o = Math.round(((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000);
 
       if (o > 125) {
-        $('app-header ul li > a').css('color', '#380404');
-        $('app-header ul li').css('border-color', '#380404');
+        $('.menu-hamburger img').css('border-color', '#380404');
       } else {
-        $('app-header ul li > a').css('color', '#ffffff');
-        $('app-header ul li').css('border-color', '#ffffff');
+        $('.menu-hamburger img').css('border-color', '#ffffff');
       }
     });
   }
 
+  public onSlide(componentName: string) {
+    this.isMenuActive = false;
+    let componentTopOffset = componentName === 'about' ? 100 : 50;
+    $('html, body').animate({
+      scrollTop: $('app-' + componentName).offset().top + componentTopOffset
+    }, 2000);
+  }
 }
-
-/**
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

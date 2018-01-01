@@ -1,4 +1,13 @@
-<app-header></app-header>
+<div class="logo-container">
+    <a href="/">
+        <img src="./assets/icon/100x100.png" alt="ar logo">
+    </a>
+</div>
+<div class="menu-hamburger" (click)="onToggle()">
+    <img #imgHamburger src="./assets/img/menu.png" alt="menu">
+    <img #imgExit class="hidden" src="./assets/img/exit.png" alt="exit">
+</div>
+<app-header [menuToggle]="isMenuActive" (menuOptionClicked)="onSlide($event)"></app-header>
 <app-home id="home"></app-home>
 <div class="overflow-container">
     <app-about class="skewed-section-container"></app-about>

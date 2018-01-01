@@ -1,6 +1,6 @@
 // Initial Setup
 $(function() {
-    const canvas = document.querySelector('canvas');
+    const canvas = document.getElementById('home-canvas');
     const c = canvas.getContext('2d');
 
     canvas.width = innerWidth;
