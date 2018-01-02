@@ -48,15 +48,15 @@ export class HeaderComponent implements OnInit, OnChanges {
   public menuState = 'active';
   public hamburgerState = 'inactive';
   public isHamburgerHidden = false;
-  public @ViewChild('menuHamburger') menuHamburger: ElementRef;
-  public @ViewChild('menu') menu: ElementRef;
-  public @ViewChild('menuContainer') menuContainer: ElementRef;
+  @ViewChild('menuHamburger') menuHamburger: ElementRef;
+  @ViewChild('menu') menu: ElementRef;
+  @ViewChild('menuContainer') menuContainer: ElementRef;
   // public @Input() menuToggle: boolean = false;
-  public @Input()
+  @Input()
   set menuToggle(active: boolean) {
     this._menuToggle = active;
   };
-  public @Output() menuOptionClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() menuOptionClicked: EventEmitter<string> = new EventEmitter<string>();
   public _menuToggle: boolean;
 
   constructor() { }

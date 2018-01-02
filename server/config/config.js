@@ -33,15 +33,15 @@ if (error) {
 const config = {
   env: envVars.NODE_ENV,
   port: envVars.SERVER_PORT,
-  mongooseDebug: envVars.MONGOOSE_DEBUG,
+  // mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,
-  mongo: {
-    host: envVars.MONGO_HOST,
-    port: envVars.MONGO_PORT
-  },
-  email: {
-    text: 'test',
-  }
+  // mongo: {
+  //   host: envVars.MONGO_HOST,
+  //   port: envVars.MONGO_PORT
+  // },
+  // email: {
+  //   text: 'test',
+  // }
 };
 
 export default config;

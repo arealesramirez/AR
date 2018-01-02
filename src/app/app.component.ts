@@ -25,8 +25,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public loadAPI: Promise<any>;
   public isMenuActive: boolean;
   public activeComponent: string = 'home';
-  public @ViewChild('imgHamburger') imgHamburger: ElementRef;
-  public @ViewChild('imgExit') imgExit: ElementRef;
+  @ViewChild('imgHamburger') imgHamburger: ElementRef;
+  @ViewChild('imgExit') imgExit: ElementRef;
 
   constructor(
     public appState: AppState
