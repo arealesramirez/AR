@@ -54,7 +54,7 @@
     "server": "npm run server:dev",
     "start:hmr": "npm run server:dev:hmr",
     "start": "concurrently \"npm run server:dev\" \"nodemon --watch server server-start.js\" ",
-    "start:prod": "NODE_ENV=production && node server server-start.js",
+    "start:prod": "NODE_ENV=production && node server:server:ci server-start.js",
     "test": "npm run lint && karma start",
     "tslint": "tslint",
     "typedoc": "typedoc",
