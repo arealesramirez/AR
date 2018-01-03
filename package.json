@@ -71,10 +71,7 @@
     "webpack": "node --max_old_space_size=4098 node_modules/webpack/bin/webpack.js"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@angular/animations": "~4.3.0",
->>>>>>> parent of 181d1c4... adding more dependencies
     "@angular/cdk": "^2.0.0-beta.12",
     "@angular/common": "~4.3.0",
     "@angular/compiler": "~4.3.0",
