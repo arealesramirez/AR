@@ -7,7 +7,7 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/server.js",
             "cwd": "${workspaceRoot}",
-            "args": [ "${max_old_space_size:512}" ],
+            "args": [ "${max_old_space_size:200}" ],
             "sourceMaps": true
         },
         {
