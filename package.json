@@ -90,6 +90,7 @@
     "apollo-angular": "^0.13.0",
     "apollo-client": "^1.4.2",
     "app-root-path": "^2.0.1",
+    "assets-webpack-plugin": "^3.5.1",
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.2",
     "body-parser": "^1.17.2",
