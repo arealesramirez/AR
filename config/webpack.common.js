@@ -129,7 +129,7 @@ module.exports = function (options) {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          use: 'babel-loader',
           query: {
             presets: ['es2015', 'react']
           }
@@ -138,7 +138,7 @@ module.exports = function (options) {
           test: /\.ts$/,
           use: [
             {
-              loader: '@angularclass/hmr-loader',
+              use: '@angularclass/hmr-loader',
               options: {
                 pretty: !isProd,
                 prod: isProd
@@ -148,22 +148,22 @@ module.exports = function (options) {
               /**
                *  MAKE SURE TO CHAIN VANILLA JS CODE, I.E. TS COMPILATION OUTPUT.
                */
-              loader: 'ng-router-loader',
+              use: 'ng-router-loader',
               options: {
-                loader: 'async-import',
+                use: 'async-import',
                 genDir: 'compiled',
                 aot: AOT
               }
             },
             {
-              loader: 'awesome-typescript-loader',
+              use: 'awesome-typescript-loader',
               options: {
                 configFileName: 'tsconfig.webpack.json',
                 useCache: !isProd,
               }
             },
             {
-              loader: 'angular2-template-loader'
+              use: 'angular2-template-loader'
             }
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
@@ -231,7 +231,7 @@ module.exports = function (options) {
           test: /\.scss$/,
           use: extractTextPlugin.extract({
             fallback: "style-loader",
-            loader: ["css-loader", "sass-loader"],
+            use: ["css-loader", "sass-loader"],
           }),
         },
       ],
