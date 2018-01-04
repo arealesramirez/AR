@@ -31,9 +31,14 @@ if (config.MONGOOSE_DEBUG) {
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
 
-  // listen on port config.port
-  app.listen(config.port, () => {
-    console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
-  });
+  // // listen on port config.port
+  // app.listen(config.port, () => {
+  //   console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
+  // });
+
+  // when on Heroku, port will be exported to an environment variable
+// and available as process.env.PORT
+var port = process.env.PORT || '4040';
+app.listen(port);
 
 export default app;
