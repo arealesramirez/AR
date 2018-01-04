@@ -30,7 +30,7 @@ const OptimizeJsPlugin = require('optimize-js-plugin');
  */
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 // const HOST = process.env.HOST || 'localhost';
-const HOST = process.env.HOST || 0.0.0.0;
+const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 8080;
 const METADATA = webpackMerge(commonConfig({
   env: ENV
