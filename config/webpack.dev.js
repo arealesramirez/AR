@@ -1,3 +1,5 @@
+import { POINT_CONVERSION_UNCOMPRESSED } from "constants";
+
 /**
  * @author: @AngularClass
  */
@@ -228,6 +230,7 @@ module.exports = function (options) {
         // poll: 1000,
         ignored: /node_modules/
       },
+      disableHostCheck: true,
       /**
       * Here you can access the Express app object and add your own custom middleware to it.
       *
