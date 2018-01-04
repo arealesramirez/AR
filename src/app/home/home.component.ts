@@ -1,5 +1,5 @@
 import { element } from 'protractor';
-import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { Component, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import Typed from '../../assets/scripts/typed.js/typed';
 declare var jQuery: any;
 
@@ -8,13 +8,10 @@ declare var jQuery: any;
   templateUrl: './home.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements AfterViewInit {
   public loadAPI: Promise<any>;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
   ngAfterViewInit() {

@@ -1,5 +1,5 @@
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { ContactService } from './contact.service';
@@ -10,7 +10,7 @@ import { Contact } from './contact.model';
   templateUrl: './contact.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   public contactForm: FormGroup;
 
   constructor(
@@ -22,9 +22,6 @@ export class ContactComponent implements OnInit {
       'email': [null, Validators.compose([Validators.required, Validators.email])],
       'message': [null, Validators.required],
     });
-  }
-
-  ngOnInit() {
   }
 
   onSubmit() {
