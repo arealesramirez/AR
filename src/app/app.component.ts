@@ -8,7 +8,6 @@ import {
   ElementRef,
 } from '@angular/core';
 import { AppState } from './app.service';
-import { PostsService } from './posts/posts.service';
 import { ContactService } from './contact/contact.service';
 import { HeaderComponent } from './header/header.component';
 declare var jquery: any;
@@ -19,7 +18,7 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
   // styleUrls: [ './app.component.scss'],
   templateUrl: './app.component.html',
-  providers: [PostsService, ContactService]
+  providers: [ ContactService]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public loadAPI: Promise<any>;

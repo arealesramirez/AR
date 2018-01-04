@@ -7,6 +7,5 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 router.route('/')
   .post( validate(paramValidation.sendContact), contactCtrl.send);
-  // .post(contactCtrl.send);
 
 export default router;
