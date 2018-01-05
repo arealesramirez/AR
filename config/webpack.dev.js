@@ -241,8 +241,8 @@ module.exports = function (options) {
         // });
       },
       proxy: {
-        '/api':  `http://localhost:${process.env.SERVER_PORT || '4040'}`
-        // '/api':  `http://0.0.0.0:${process.env.SERVER_PORT || '4040'}`
+        // '/api':  `http://localhost:${process.env.SERVER_PORT || '4040'}`
+        '/api':  `http://0.0.0.0:${process.env.SERVER_PORT || '4040'}`
       }
     },
 
