@@ -16,10 +16,10 @@ $darkGrey:#161616;
 $brown:#260000;
 @font-face {
     font-family: "true lies";
-    src: url("../fonts/true_lis-webfont.ttf");
+    src: url(/assets/fonts/true_lis-webfont.ttf);
     src: 
-    url("../fonts/true_lis-webfont.woff") format("woff"),
-    url("../fonts/true_lis-webfont.woff2") format("woff2");
+    url(/assets/fonts/true_lis-webfont.woff) format("woff"),
+    url(/assets/fonts/true_lis-webfont.woff2) format("woff2");
     }
 body {
     padding: 0;
