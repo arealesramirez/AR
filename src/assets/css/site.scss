@@ -15,11 +15,14 @@ $grey:#777777;
 $darkGrey:#161616;
 $brown:#260000;
 @font-face {
-    font-family: "true lies";
-    src: url(/assets/fonts/true_lis-webfont.ttf);
+    font-family: 'aaa';
+    src: url(/assets/fonts/true_lies-webfont.eot);
     src: 
-    url(/assets/fonts/true_lis-webfont.woff) format("woff"),
-    url(/assets/fonts/true_lis-webfont.woff2) format("woff2");
+    url(/assets/fonts/true_lies-webfont.eot) format("embedded-opentype"),
+    url(/assets/fonts/true_lies-webfont.svg) format("svg"),
+    url(/assets/fonts/true_lies-webfont.ttf) format("truetype"),
+    url(/assets/fonts/true_lies-webfont.woff) format("woff"),
+    url(/assets/fonts/true_lies-webfont.woff2) format("woff2");
     }
 body {
     padding: 0;
@@ -265,7 +268,7 @@ app-home{
 
 .type-header{
     color: white;
-    font-family: 'true lies';
+    font-family: 'aaa';
     letter-spacing: 0.25em;
     font-size: 55px;
     margin: auto;
