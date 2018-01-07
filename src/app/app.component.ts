@@ -12,7 +12,7 @@ import { ContactService } from './contact/contact.service';
 import { HeaderComponent } from './header/header.component';
 
 import * as ScrollMagic from 'scrollmagic';
-import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js';
+// import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js';
 declare var jquery: any;
 declare var $: any;
 
@@ -127,23 +127,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
         reverse: false,
       })
         .setClassToggle(this, 'animate')
-        .addIndicators({
-          name: 'fade scene',
-          colorTrigger: 'red',
-          colorStart: '#75C695',
-        })
+        // .addIndicators({
+        //   name: 'fade scene',
+        //   colorTrigger: 'red',
+        //   colorStart: '#75C695',
+        // })
         .addTo(controller);
     });
-
-
-
-    // $(window).scroll(function() {
-    //   let topAbout = $('app-about .section-group').first().offset().top;
-
-    //   if (topAbout - (window.pageYOffset + window.innerHeight) < 0 ) {
-    //     $('app-about .section-group').addClass('animate');
-    //   }
-    // });
 
   }
 }
