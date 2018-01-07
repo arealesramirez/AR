@@ -12,7 +12,9 @@ $(function() {
         y: innerHeight / 2,
     };
 
-    const colors = ['#0a0e30', '#123f48', '#1b785c', '#060921', '#FFFFFF'];
+    // const colors = ['#0a0e30', '#123f48', '#1b785c', '#060921', '#FFFFFF'];
+    // const colors = ['#4f0404', '#270000', '#380404', '#161616', '#FFFFFF'];
+    const colors = ['#eaeaea','#cccccc', '#FFFFFF'];
 
     // Event Listeners
     addEventListener('mousemove', event => {
@@ -83,8 +85,9 @@ $(function() {
     function init() {
         particles = [];
 
-        for (let i = 0; i < 1000; i++) {
-            const radius = (Math.random() * 2) + 1;
+        for (let i = 0; i < 1500; i++) {
+            // const radius =  (Math.random() * 4) + 1;
+            const radius =  1;
             particles.push(new Particle(canvas.width / 2, canvas.height / 2, radius, randomColor(colors)));
         }
     }

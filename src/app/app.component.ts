@@ -10,6 +10,9 @@ import {
 import { AppState } from './app.service';
 import { ContactService } from './contact/contact.service';
 import { HeaderComponent } from './header/header.component';
+
+import * as ScrollMagic from 'scrollmagic';
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js';
 declare var jquery: any;
 declare var $: any;
 
@@ -18,12 +21,13 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
   // styleUrls: [ './app.component.scss'],
   templateUrl: './app.component.html',
-  providers: [ ContactService]
+  providers: [ContactService]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public loadAPI: Promise<any>;
   public isMenuActive: boolean;
   public activeComponent: string = 'home';
+  public scrollMagic: any;
   @ViewChild('imgHamburger') imgHamburger: ElementRef;
   @ViewChild('imgExit') imgExit: ElementRef;
 
@@ -43,6 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public ngAfterViewInit() {
     this.loadAPI = new Promise((resolve) => {
       this.loadChangeColorHeader();
+      this.animateContent();
       resolve(true);
     });
   }
@@ -109,5 +114,36 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
     $('html, body').animate({
       scrollTop: $('app-' + componentName).offset().top + componentTopOffset
     }, 2000);
+  }
+
+  public animateContent() {
+    let controller = new ScrollMagic.Controller();
+
+    $('.section-group').each(function () {
+      let aboutContent = new ScrollMagic.Scene({
+        triggerElement: this,
+        // duration: '90%',
+        triggerHook: 1,
+        reverse: false,
+      })
+        .setClassToggle(this, 'animate')
+        .addIndicators({
+          name: 'fade scene',
+          colorTrigger: 'red',
+          colorStart: '#75C695',
+        })
+        .addTo(controller);
+    });
+
+
+
+    // $(window).scroll(function() {
+    //   let topAbout = $('app-about .section-group').first().offset().top;
+
+    //   if (topAbout - (window.pageYOffset + window.innerHeight) < 0 ) {
+    //     $('app-about .section-group').addClass('animate');
+    //   }
+    // });
+
   }
 }
