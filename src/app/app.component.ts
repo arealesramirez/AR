@@ -10,6 +10,7 @@ import {
 import { AppState } from './app.service';
 import { ContactService } from './contact/contact.service';
 import { HeaderComponent } from './header/header.component';
+import { AlertComponent } from './alert/alert.component';
 
 import * as ScrollMagic from 'scrollmagic';
 // import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js';
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   public scrollMagic: any;
   @ViewChild('imgHamburger') imgHamburger: ElementRef;
   @ViewChild('imgExit') imgExit: ElementRef;
+  @ViewChild('alert') alert: AlertComponent;
 
   constructor(
     public appState: AppState
@@ -110,6 +112,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
 
   public onSlide(componentName: string) {
     this.isMenuActive = false;
+    this.imgHamburger.nativeElement.classList.remove('hidden');
+    this.imgExit.nativeElement.classList.add('hidden');
     let componentTopOffset = componentName === 'about' ? 100 : 50;
     $('html, body').animate({
       scrollTop: $('app-' + componentName).offset().top + componentTopOffset
@@ -134,6 +138,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
         // })
         .addTo(controller);
     });
+  }
 
+  public onSubmittedForm(data: any) {
+    this.alert.title = data.title;
+    this.alert.message = data.message;
+    this.alert.isHidden = false;
   }
 }

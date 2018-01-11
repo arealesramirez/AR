@@ -1,5 +1,5 @@
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { ContactService } from './contact.service';
@@ -12,7 +12,7 @@ import { Contact } from './contact.model';
 })
 export class ContactComponent {
   public contactForm: FormGroup;
-
+  @Output() onSubmitForm:EventEmitter<any> = new EventEmitter<any>();
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService
@@ -24,7 +24,7 @@ export class ContactComponent {
     });
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (this.contactForm.valid) {
       const contact = new Contact(
         this.contactForm.get('name').value,
@@ -35,8 +35,8 @@ export class ContactComponent {
       this.contactForm.reset();
       this.contactService.sendMessage(contact)
         .subscribe(
-          data => console.log(data),
-          error => console.error(error)
+          data => this.onSubmitForm.emit(data),
+          error => this.onSubmitForm.emit(error)
         );
     }
   }

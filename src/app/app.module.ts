@@ -49,6 +49,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { HiremeComponent } from './hireme/hireme.component';
 import { FooterComponent } from './footer/footer.component';
+import { AlertComponent } from './alert/alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import '../assets/css/site.scss';
 
@@ -78,9 +79,7 @@ type StoreType = {
     ServicesComponent,
     HiremeComponent,
     FooterComponent,
-    // ReactComponent,
-    // ProfileComponent,
-    // NoContentComponent,
+    AlertComponent,
   ],
   /**
    * Import Angular's modules.

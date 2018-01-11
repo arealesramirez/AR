@@ -52,12 +52,18 @@ function send(req, res, next) {
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return res.status(500).json({
-                title: 'Error while sending the email',
+                title: 'Error',
+                message: `This is embarrasing. Your message couldn't be sent.
+                Please, try to send the message again. If the problem persists, 
+                send me an email directly to arealesramirez8606@gmail.com. 
+                
+                Sorry, for the inconvenience.`,
                 error: error,
             });
         }
         res.status(200).json({
-            message: 'Message sent!',
+            title: 'Message sent!',
+            message: `Your message was successfully sent. I'll be in touch with you soon.`,
             obj: contact,
         });
 

@@ -13,6 +13,7 @@
     <app-about class="skewed-section-container"></app-about>
     <app-services class="skewed-section-container"></app-services>
     <app-hireme class="skewed-section-container"></app-hireme>
-    <app-contact class="skewed-section-container"></app-contact>
+    <app-contact (onSubmitForm)="onSubmittedForm($event)" class="skewed-section-container"></app-contact>
 </div>
 <app-footer></app-footer>
+<app-alert #alert></app-alert>
