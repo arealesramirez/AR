@@ -29,7 +29,7 @@ export class ContactComponent {
       const contact = new Contact(
         this.contactForm.get('name').value,
         this.contactForm.get('email').value,
-        'Message from AR App',
+        'AR App: New Message',
         this.contactForm.get('message').value,
       );
       this.contactForm.reset();

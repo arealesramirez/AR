@@ -19,20 +19,25 @@ function send(req, res, next) {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: emailSettings.host,
-        port: emailSettings.port,
-        secure: emailSettings.secure,
+        port: 465,
+        secure: true,
         auth: {
+            type: 'OAuth2',
             user: emailSettings.username,
-            pass: emailSettings.password,
+            clientId: emailSettings.clientId,
+            clientSecret: emailSettings.clientSecret,
+            refreshToken: emailSettings.refreshToken,
+            accessToken: emailSettings.accessToken,
+            expires: emailSettings.expires
         },
         tls: {
-            rejectUnauthorized:emailSettings.rejectUnauthorized,
+            rejectUnauthorized: emailSettings.rejectUnauthorized,
         },
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: contact.email,
+        from: contact.name + '<' + contact.email + '>',
         to: emailSettings.username,
         subject: contact.subject,
         html: '<p>From: ' + contact.name + '</p>' +
@@ -40,13 +45,13 @@ function send(req, res, next) {
     };
 
     // verify connection configuration
-    transporter.verify(function (error, success) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Server is ready to take our messages');
-        }
-    });
+    // transporter.verify(function (error, success) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         console.log('Server is ready to take our messages');
+    //     }
+    // });
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
@@ -60,13 +65,13 @@ function send(req, res, next) {
                 Sorry, for the inconvenience.`,
                 error: error,
             });
-        }
+        }else {
         res.status(200).json({
             title: 'Message sent!',
             message: `Your message was successfully sent. I'll be in touch with you soon.`,
             obj: contact,
         });
-
+    }
     });
 
 }

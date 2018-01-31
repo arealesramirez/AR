@@ -141,6 +141,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   public onSubmittedForm(data: any) {
+    data = data.error ? data.error : data ;
     this.alert.title = data.title;
     this.alert.message = data.message;
     this.alert.isHidden = false;
