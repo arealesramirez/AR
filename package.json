@@ -56,6 +56,7 @@
     "start:hmr": "npm run server:dev:hmr",
     "start": "concurrently \"node --max_old_space_size=460 --gc_interval=100 server-start.js\" \"npm run server:dev\" ",
     "start:prod": "NODE_ENV=production&& concurrently \"node --max_old_space_size=460 --gc_interval=100 server-start.js\" \"npm run server:prod\"",
+    "start:prod:cmd": "npm run build:aot && SET NODE_ENV=production&& concurrently \"node --max_old_space_size=460 --gc_interval=100 server-start.js\" \"npm run server:prod\"",
     "test": "npm run lint && karma start",
     "tslint": "tslint",
     "typedoc": "typedoc",
