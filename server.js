@@ -32,11 +32,16 @@ Promise = require('bluebird'); // eslint-disable-line no-global-assign
 // src: https://github.com/mochajs/mocha/issues/1912
 
 
-// IMPORTANT: \\ listen on port config.port
+// DEVELOPMENT
+// app.listen(config.port, () => {
+//   console.info(`server started on port ${port} (${config.env})`); // eslint-disable-line no-console
+// });
+
+// IMPORTANT FOR HEROKU Deployment: listen on port config.port
 // when on Heroku, port will be exported to an environment variable available as process.env.PORT
 var port = process.env.PORT || '3000';
-app.listen(config.port, () => {
-  console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
+app.listen(port, () => {
+  console.info(`server started on port ${port} (${config.env})`); // eslint-disable-line no-console
 });
 
 export default app;
