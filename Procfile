@@ -1,1 +1,1 @@
-web: npm run build:aot && npm run start:prod
+web: npm run start:prod
