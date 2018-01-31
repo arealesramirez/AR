@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ApolloModule } from 'apollo-angular';
-import { client } from '../graphql.client';
+// import { ApolloModule } from 'apollo-angular';
+// import { client } from '../graphql.client';
+
 import {
   NgModule,
   ApplicationRef
@@ -16,12 +17,12 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
-import {
-  MatToolbarModule,
-  MatCardModule,
-  MatListModule,
-  MatGridListModule
-} from '@angular/material';
+// import {
+//   MatToolbarModule,
+//   MatCardModule,
+//   MatListModule,
+//   MatGridListModule
+// } from '@angular/material';
 import 'hammerjs';
 
 /*
@@ -81,26 +82,21 @@ type StoreType = {
     FooterComponent,
     AlertComponent,
   ],
-  /**
-   * Import Angular's modules.
-   */
   imports: [
 BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatListModule,
-    MatGridListModule,
+    // MatToolbarModule,
+    // MatCardModule,
+    // MatListModule,
+    // MatGridListModule,
     HttpClientModule ,
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
-    ApolloModule.forRoot(client),
+    // ApolloModule.forRoot(client),
   ],
-  /**
-   * Expose our Services and Providers into Angular's dependency injection.
-   */
+
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,

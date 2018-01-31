@@ -34,7 +34,7 @@ Promise = require('bluebird'); // eslint-disable-line no-global-assign
 // listen on port config.port
 // when on Heroku, port will be exported to an environment variable
 // and available as process.env.PORT
-var port = process.env.PORT || '4040';
+// var port = process.env.PORT || '4040';
 app.listen(config.port, () => {
   console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
 });
