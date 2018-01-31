@@ -19,8 +19,8 @@ function send(req, res, next) {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: emailSettings.host,
-        port: 465,
-        secure: true,
+        port: emailSettings.port,
+        secure: emailSettings.secure,
         auth: {
             type: 'OAuth2',
             user: emailSettings.username,
@@ -45,13 +45,13 @@ function send(req, res, next) {
     };
 
     // verify connection configuration
-    // transporter.verify(function (error, success) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         console.log('Server is ready to take our messages');
-    //     }
-    // });
+    transporter.verify(function (error, success) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Server is ready to take our messages');
+        }
+    });
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
@@ -65,13 +65,13 @@ function send(req, res, next) {
                 Sorry, for the inconvenience.`,
                 error: error,
             });
-        }else {
+        }
         res.status(200).json({
             title: 'Message sent!',
             message: `Your message was successfully sent. I'll be in touch with you soon.`,
             obj: contact,
         });
-    }
+
     });
 
 }

@@ -3,6 +3,7 @@ const emailSettings = {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
+    username: 'arealesramirez8606@gmail.com',
     clientId: '983732760264-7f9o2krt64puehagaf5bstfun12v70ov.apps.googleusercontent.com',
     clientSecret: 'YNTifTO4yiSXcnHlvaXUwRg6',
     refreshToken: '1/EBRuXXazYMhT4p3mex6RXyGM8TdngA9czM1FDNSc8iVOXcICuGcfYy6u5GCD0R3Q',
