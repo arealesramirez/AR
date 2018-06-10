@@ -1,5 +1,5 @@
 
-# [![AR Logo](http://www.andresreales.com/assets/icon/400x400.png)](https://www.andresreales.com/) MEAN<sup>2</sup>
+# [![AR Logo](http://www.andresreales.com/assets/icon/100x100.png)](https://www.andresreales.com/) 
 
 #### AR - Andrés Reales Designer/Developer
 
